@@ -1,0 +1,16 @@
+[Unit]
+Description=Banished Discord Bot
+
+[Service]
+WorkingDirectory=/var/dotnetcore/Banished.Discord
+ExecStart=/usr/bin/dotnet /var/dotnetcore/Banished.Discord/Banished.Discord.dll
+Restart=always
+RestartSec=10
+SyslogIdentifier=banished.discord
+User=root
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+Environment=BanishedDiscordToken=
+
+[Install]
+WantedBy=multi-user.target
